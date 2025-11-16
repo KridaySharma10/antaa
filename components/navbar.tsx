@@ -1,8 +1,9 @@
 "use client"
 
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { usePathname } from 'next/navigation'
 import { cn } from "@/lib/utils"
+import { Logo } from "./logo"
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -21,11 +22,8 @@ export function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/30 border-b border-primary/30 shadow-lg shadow-primary/5">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="text-2xl font-bold">
-            <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-              ANTAA
-            </span>
+          <Link href="/" className="flex items-center">
+            <Logo />
           </Link>
 
           {/* Navigation Links */}

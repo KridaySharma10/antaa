@@ -60,7 +60,7 @@ export function ParticleBackground() {
         // Draw particle
         ctx.beginPath()
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
-        ctx.fillStyle = "rgba(74, 158, 187, 0.6)" // Teal color
+        ctx.fillStyle = "rgba(230, 126, 34, 0.6)" // Orange color from logo
         ctx.fill()
 
         // Draw connections
@@ -74,7 +74,7 @@ export function ParticleBackground() {
             ctx.beginPath()
             ctx.moveTo(particle.x, particle.y)
             ctx.lineTo(particles[j].x, particles[j].y)
-            ctx.strokeStyle = `rgba(74, 158, 187, ${opacity})`
+            ctx.strokeStyle = `rgba(230, 126, 34, ${opacity})`
             ctx.lineWidth = 1
             ctx.stroke()
           }
