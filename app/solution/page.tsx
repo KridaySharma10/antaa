@@ -8,6 +8,7 @@ import { PageTransition } from "@/components/page-transition"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import { Users, Clock, Ticket, Handshake } from 'lucide-react'
 
 export default function SolutionPage() {
   const advantages = [
@@ -33,6 +34,29 @@ export default function SolutionPage() {
     "Seamless system integration with existing infrastructure",
     "Dedicated account management and support",
     "Deep industry expertise across multiple sectors",
+  ]
+
+  const revenueModels = [
+    {
+      icon: Users,
+      title: "Per Seat / FTE Model",
+      description: "Fixed monthly fee per agent deployed on client project. Ideal for call center and back-office operations.",
+    },
+    {
+      icon: Clock,
+      title: "Per Hour Billing Model",
+      description: "Revenue based on total agent hours worked. Best for international BPO and customer support projects.",
+    },
+    {
+      icon: Ticket,
+      title: "Per Transaction / Ticket Model",
+      description: "Charges based on resolved customer tickets or completed transactions. Optimal for e-commerce and BFSI sectors.",
+    },
+    {
+      icon: Handshake,
+      title: "Project-Based Pricing",
+      description: "Fixed cost for defined project scope like data migration or CRM implementation. Suitable for short-term ITES projects.",
+    },
   ]
 
   return (
@@ -109,6 +133,50 @@ export default function SolutionPage() {
                   ))}
                 </div>
               </GlassCard>
+            </motion.div>
+
+            <motion.div
+              className="mb-16"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center text-foreground">
+                Business Model & Revenue Streams
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-secondary to-accent mx-auto mb-6" />
+              
+              <h3 className="text-3xl font-semibold mb-12 text-center bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">
+                Our Revenue Models
+              </h3>
+
+              <div className="grid md:grid-cols-2 gap-8">
+                {revenueModels.map((model, index) => {
+                  const IconComponent = model.icon
+                  return (
+                    <motion.div
+                      key={model.title}
+                      initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                    >
+                      <GlassCard className="border-l-4 border-l-secondary h-full">
+                        <div className="flex items-start gap-6">
+                          <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
+                            <IconComponent className="w-8 h-8 text-primary" />
+                          </div>
+                          <div className="flex-1">
+                            <h4 className="text-2xl font-bold mb-3 text-foreground">{model.title}</h4>
+                            <p className="text-muted-foreground leading-relaxed">{model.description}</p>
+                          </div>
+                        </div>
+                      </GlassCard>
+                    </motion.div>
+                  )
+                })}
+              </div>
             </motion.div>
 
             {/* CTA */}

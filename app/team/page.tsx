@@ -6,25 +6,33 @@ import { Footer } from "@/components/footer"
 import { GlassCard } from "@/components/glass-card"
 import { PageTransition } from "@/components/page-transition"
 import { motion } from "framer-motion"
+import { Users } from 'lucide-react'
 
 export default function TeamPage() {
-  const leaders = [
+  const founders = [
     {
       name: "Amresh Anand",
-      role: "Chief Executive Officer",
-      bio: "18+ years in customer service & operations. Visionary leader with expertise in scaling global enterprises.",
+      role: "Founder & CEO",
+      bio: "A seasoned sales and marketing professional with PGDBA (Marketing & Finance) and over 18 years of experience across:",
+      expertise: [
+        "Sales & Marketing Leadership",
+        "Operations Management",
+        "Branch Management",
+        "Customer Support Verticals",
+      ],
+      summary:
+        "Rich experience in Retail Finance Industry, transitioned from corporate leadership to entrepreneurship in 2023, establishing ANTAA Intellipro Services in Feb 2025.",
+      tags: ["Business Strategy", "Sales Leadership", "Operations", "Client Relations"],
     },
     {
       name: "Niharika Anand",
-      role: "Chief Technology Officer",
-      bio: "Expert in automation, cloud architecture, and process design. Pioneer in AI-driven operational excellence.",
+      role: "Co-Founder & CTO",
+      bio: "An IT professional with MCA degree and over 5 years of experience in:",
+      expertise: ["Software Development", "Systems Management", "IT-enabled Services", "Domestic & International Projects"],
+      summary:
+        "Skilled in problem-solving, client support, and emerging technologies, bringing a strong blend of technical expertise and business understanding to deliver scalable solutions and drive process efficiency.",
+      tags: ["Technical Leadership", "IT Solutions", "Software Development", "Process Optimization"],
     },
-  ]
-
-  const values = [
-    { title: "Innovation", icon: "💡", description: "Continuously pushing boundaries" },
-    { title: "Integrity", icon: "🤝", description: "Operating with transparency" },
-    { title: "Excellence", icon: "⭐", description: "Delivering exceptional results" },
   ]
 
   return (
@@ -36,73 +44,79 @@ export default function TeamPage() {
         <main className="min-h-screen pt-32 pb-20 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <motion.h1
-              className="text-5xl md:text-6xl font-bold mb-8 text-center"
+              className="text-5xl md:text-6xl font-bold mb-6 text-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
-              <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-                Leadership
-              </span>
+              <span className="text-foreground">Meet the Founders</span>
             </motion.h1>
 
-            <motion.p
-              className="text-xl text-center text-muted-foreground mb-16 max-w-3xl mx-auto leading-relaxed"
+            <motion.div
+              className="flex items-center justify-center mb-16"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              Meet the visionaries driving innovation and excellence at ANTAA.
+              <div className="h-1 w-24 bg-primary rounded-full" />
+            </motion.div>
+
+            <motion.p
+              className="text-xl text-center text-muted-foreground mb-16 max-w-4xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              Leadership team with complementary expertise in business and technology
             </motion.p>
 
-            {/* Leadership Grid */}
-            <div className="grid md:grid-cols-2 gap-8 mb-20">
-              {leaders.map((leader, index) => (
+            <div className="grid md:grid-cols-2 gap-12 mb-20">
+              {founders.map((founder, index) => (
                 <motion.div
-                  key={leader.name}
+                  key={founder.name}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
                 >
-                  <GlassCard className="group">
-                    <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                      {leader.name}
-                    </h3>
-                    <p className="text-lg text-accent mb-4">{leader.role}</p>
-                    <p className="text-muted-foreground leading-relaxed">{leader.bio}</p>
+                  <GlassCard className="h-full">
+                    <div className="flex items-start gap-6 mb-6">
+                      {/* Avatar Circle */}
+                      <div className="flex-shrink-0 w-24 h-24 rounded-full border-4 border-primary bg-muted/30 flex items-center justify-center">
+                        <Users className="w-12 h-12 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold text-foreground mb-2">{founder.name}</h3>
+                        <p className="text-lg text-muted-foreground">{founder.role}</p>
+                      </div>
+                    </div>
+
+                    <p className="text-muted-foreground leading-relaxed mb-4">{founder.bio}</p>
+
+                    <ul className="space-y-2 mb-6">
+                      {founder.expertise.map((item, i) => (
+                        <li key={i} className="text-muted-foreground flex items-start">
+                          <span className="text-primary mr-2">•</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <p className="text-muted-foreground leading-relaxed mb-6">{founder.summary}</p>
+
+                    <div className="flex flex-wrap gap-2">
+                      {founder.tags.map((tag, i) => (
+                        <span
+                          key={i}
+                          className="px-4 py-2 rounded-full text-sm bg-muted/50 text-muted-foreground border border-primary/20"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </GlassCard>
                 </motion.div>
               ))}
             </div>
-
-            {/* Core Values */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-4xl font-bold mb-12 text-center text-foreground">Core Values</h2>
-              <div className="grid md:grid-cols-3 gap-8">
-                {values.map((value, index) => (
-                  <motion.div
-                    key={value.title}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.15 }}
-                  >
-                    <GlassCard className="text-center">
-                      <div className="text-5xl mb-4">{value.icon}</div>
-                      <h3 className="text-2xl font-bold mb-3 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                        {value.title}
-                      </h3>
-                      <p className="text-muted-foreground">{value.description}</p>
-                    </GlassCard>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
           </div>
         </main>
       </PageTransition>

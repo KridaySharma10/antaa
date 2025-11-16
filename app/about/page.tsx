@@ -22,46 +22,45 @@ export default function AboutPage() {
               animate={{ opacity: 1, y: 0 }}
             >
               <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-                Who We Are
+                About Us
               </span>
             </motion.h1>
 
-            <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <GlassCard>
-                  <h2 className="text-3xl font-bold mb-6 text-foreground">About ANTAA</h2>
-                  <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                    ANTAA Intellipro Services is redefining outsourcing through technology and empathy. We empower
-                    enterprises to scale efficiently, maintain compliance, and deliver superior customer experiences.
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mb-20"
+            >
+              <GlassCard>
+                <div className="prose prose-lg max-w-none">
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                    At ANTAA Intellipro Services, we are committed to delivering reliable, scalable, and cost-efficient
+                    Business Process Outsourcing solutions that empower organizations to focus on what they do best.
+                    With a strong foundation in excellence and innovation, we provide end-to-end support services
+                    designed to enhance productivity, improve customer satisfaction, and drive sustainable business
+                    growth.
                   </p>
-                  <p className="text-lg text-muted-foreground leading-relaxed">
-                    Founded with a vision to bridge the gap between technology and human touch, we combine cutting-edge
-                    AI solutions with industry-leading expertise to transform how businesses operate globally.
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                    Our team of trained professionals, backed by advanced technology and streamlined processes, ensures
+                    exceptional performance across customer support, back-office operations, technical assistance, data
+                    management, and more. We understand that every business is unique, which is why we tailor our
+                    solutions to meet your specific needs, industry standards, and long-term goals.
                   </p>
-                </GlassCard>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="relative h-[400px] rounded-2xl overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-secondary/30 to-accent/30 backdrop-blur-xl" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-6xl mb-4">🌐</div>
-                    <p className="text-2xl font-semibold text-foreground">Global Excellence</p>
-                  </div>
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                    Integrity, quality, and continuous improvement form the core of who we are. We believe in creating
+                    value—not just completing tasks. Our client-first approach, transparent communication, and
+                    commitment to delivering measurable results have earned us long-standing partnerships across
+                    multiple sectors.
+                  </p>
+                  <p className="text-lg text-foreground font-medium leading-relaxed">
+                    At ANTAA Intellipro Services, we don't just support your operations—we elevate them. Together,
+                    let's build a smarter, more efficient future for your business.
+                  </p>
                 </div>
-              </motion.div>
-            </div>
+              </GlassCard>
+            </motion.div>
 
             {/* Mission and Vision */}
             <div className="grid md:grid-cols-2 gap-8">
