@@ -14,7 +14,7 @@ export default function SolutionPage() {
   const advantages = [
     {
       icon: "🤖",
-      title: "Technology + Talent Integration",
+      title: "Technology Integration",
       description: "Seamlessly blend AI automation with skilled professionals for optimal results",
     },
     {
